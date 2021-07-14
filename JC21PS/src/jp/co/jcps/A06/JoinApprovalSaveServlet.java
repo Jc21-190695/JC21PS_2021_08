@@ -74,7 +74,7 @@ public class JoinApprovalSaveServlet extends HttpServlet {
 
 		//SQLを宣言
 		// TODO: SQL文を完成させなさい。
-		String sql = "INSERT INTO trn_club_member(club_id,user_id) VALUES(?,?)";
+		String sql = "INSERT INTO trn_club_member(club_id,user_id) VALUES('?','?')";
 
 		// SQLに埋め込むパラメータリストを定義
 		List<String> paramList = new ArrayList<String>();
@@ -98,7 +98,7 @@ public class JoinApprovalSaveServlet extends HttpServlet {
 
 		//SQLを宣言
 		// TODO: SQL文を完成させなさい。
-		String sql = "DELETE FROM trn_join_request(club_id,user_id) WHERE user_id = ? AND club_id = ?";
+		String sql = "DELETE FROM trn_join_request WHERE club_id = '?' AND user_id = '?'";
 
 		// SQLに埋め込むパラメータリストを定義
 		List<String> paramList = new ArrayList<String>();
