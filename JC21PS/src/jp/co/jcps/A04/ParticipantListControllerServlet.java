@@ -44,7 +44,7 @@ public class ParticipantListControllerServlet extends HttpServlet {
 		String activityId = (String)request.getSession().getAttribute("activity_id");
 
 		// TODO: データベースから必要な情報を取得するためのSQL文を完成させなさい。
-		String sql = "SELECT user_id,activity_id FROM trn_activity left join trn_participant on trn_activity.activity_id = trn_participant.activity_id  WHERE request.activity_id = ?";
+		String sql = "SELECT act.activity_name,user.user_name FROM trn_activity as act INNER JOIN trn_participant as par ON act.activity_id = par.activity_id INNER JOIN  mst_user as user ON par.user_id = user.user_id WHERE user.user_name = ?";
 
 		// SQLに埋め込むパラメータリストを定義
 		List<String> paramList = new ArrayList<String>();
@@ -74,7 +74,7 @@ public class ParticipantListControllerServlet extends HttpServlet {
 				getStringメソッドの引数は取得したいカラム名を文字列で指定する。
 				 */
 				bean.setActivityName(rs.getString("activity_id"));
-				bean.addParticipantList(rs.getString("user_id"));
+				bean.addParticipantList(rs.getString("user_name"));
 
 
 			}
